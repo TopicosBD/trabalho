@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 23/08/2017 14:17:50 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="negocio.Funcionario" table="funcionario" catalog="sistemaclinica" optimistic-lock="version">
+        <id name="cpf" type="string">
+            <column name="cpf" length="11" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="cargo" class="negocio.Cargo" fetch="select">
+            <column name="cargo_id_cargo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="empresa" class="negocio.Empresa" fetch="select">
+            <column name="empresa_cnpj" length="20" not-null="true" />
+        </many-to-one>
+        <property name="nome" type="string">
+            <column name="nome" length="100" not-null="true" />
+        </property>
+        <property name="dataNascimento" type="date">
+            <column name="data_nascimento" length="10" not-null="true" />
+        </property>
+        <property name="endereco" type="string">
+            <column name="endereco" length="200" not-null="true" />
+        </property>
+        <property name="telefone" type="string">
+            <column name="telefone" length="20" />
+        </property>
+        <set name="exames" table="funcionario_has_exame" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="funcionario_cpf" length="11" not-null="true" />
+            </key>
+            <many-to-many entity-name="negocio.Exame">
+                <column name="exame_id_exame" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>
