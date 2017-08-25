@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `sistemaclinica`.`funcionario` (
   `cargo_id_cargo` INT NOT NULL,
   `empresa_id_empresa` INT NOT NULL,
   INDEX `fk_funcionario_cargo1_idx` (`cargo_id_cargo` ASC),
-  PRIMARY KEY (`id_funcionario`, `empresa_id_empresa`),
+  PRIMARY KEY (`id_funcionario`),
   INDEX `fk_funcionario_empresa1_idx` (`empresa_id_empresa` ASC),
   CONSTRAINT `fk_funcionario_cargo1`
     FOREIGN KEY (`cargo_id_cargo`)
