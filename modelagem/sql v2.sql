@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `sistemaclinica`.`funcionario` (
   `id_funcionario` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(100) NOT NULL,
   `cpf` VARCHAR(20) NOT NULL,
-  `data_nascimento` DATE NOT NULL,
+  `data_nascimento` DATETIME NOT NULL,
   `endereco` VARCHAR(200) NOT NULL,
   `telefone` VARCHAR(20) NULL,
   `cargo_id_cargo` INT NOT NULL,
