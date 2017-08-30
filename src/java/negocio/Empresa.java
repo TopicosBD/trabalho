@@ -1,5 +1,5 @@
 package negocio;
-// Generated 23/08/2017 14:17:48 by Hibernate Tools 4.3.1
+// Generated 29/08/2017 22:21:42 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -11,8 +11,9 @@ import java.util.Set;
 public class Empresa  implements java.io.Serializable {
 
 
-     private String cnpj;
+     private Integer idEmpresa;
      private Empresa empresa;
+     private String cnpj;
      private String nomeFantasia;
      private String endereco;
      private String telefone;
@@ -24,16 +25,15 @@ public class Empresa  implements java.io.Serializable {
     }
 
 	
-    public Empresa(String cnpj, Empresa empresa, String nomeFantasia, String endereco, String telefone) {
+    public Empresa(String cnpj, String nomeFantasia, String endereco, String telefone) {
         this.cnpj = cnpj;
-        this.empresa = empresa;
         this.nomeFantasia = nomeFantasia;
         this.endereco = endereco;
         this.telefone = telefone;
     }
-    public Empresa(String cnpj, Empresa empresa, String nomeFantasia, String endereco, String telefone, Set funcionarios, Set exames, Set empresas) {
-       this.cnpj = cnpj;
+    public Empresa(Empresa empresa, String cnpj, String nomeFantasia, String endereco, String telefone, Set funcionarios, Set exames, Set empresas) {
        this.empresa = empresa;
+       this.cnpj = cnpj;
        this.nomeFantasia = nomeFantasia;
        this.endereco = endereco;
        this.telefone = telefone;
@@ -42,12 +42,12 @@ public class Empresa  implements java.io.Serializable {
        this.empresas = empresas;
     }
    
-    public String getCnpj() {
-        return this.cnpj;
+    public Integer getIdEmpresa() {
+        return this.idEmpresa;
     }
     
-    public void setCnpj(String cnpj) {
-        this.cnpj = cnpj;
+    public void setIdEmpresa(Integer idEmpresa) {
+        this.idEmpresa = idEmpresa;
     }
     public Empresa getEmpresa() {
         return this.empresa;
@@ -55,6 +55,13 @@ public class Empresa  implements java.io.Serializable {
     
     public void setEmpresa(Empresa empresa) {
         this.empresa = empresa;
+    }
+    public String getCnpj() {
+        return this.cnpj;
+    }
+    
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
     public String getNomeFantasia() {
         return this.nomeFantasia;

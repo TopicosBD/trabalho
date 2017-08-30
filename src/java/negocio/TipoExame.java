@@ -1,5 +1,5 @@
 package negocio;
-// Generated 23/08/2017 14:17:48 by Hibernate Tools 4.3.1
+// Generated 29/08/2017 22:21:42 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;

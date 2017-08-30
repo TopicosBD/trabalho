@@ -1,0 +1,169 @@
+html,
+
+body, .topo{
+    margin:0;
+    padding:0;
+    background-image: url("white.png");
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;    
+    color:black;
+}
+
+.clear{
+    clear: both;
+}
+
+.topo {
+    top:0;
+    left:0;
+    right:0;
+    width:auto;
+    margin:0px;
+    padding:0;
+    height:100px; 
+    text-align: center;
+    background-image: url("topo2.png");
+    background-repeat: no-repeat;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    background-size: cover;
+}
+
+#wrap{
+    width: 920px;
+    margin: 0 auto;
+}
+
+#content{
+    float: right;
+    width: 920px;
+}
+
+/* Menu */
+a:link, a:visited{
+    margin: 10px;
+    width: 10px;
+    text-decoration: none;
+    color: #000;
+    padding: 5px 10px ;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    background: #ddd;
+    color: #111;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+a:hover{
+    background: #FF6D00;
+    color: #fff;
+}
+
+nav ul{
+    list-style: none;
+    padding-left: 0; 
+}
+
+header nav ul li{
+    display: inline-block;
+    list-style: none;
+    padding-left: 0; 
+}
+/*Fim Menu*/
+
+/*Cardapio*/
+.pizza select{
+    width: 100px;
+}
+
+.lanche select{
+    width: 100px;
+}
+
+.bebida select{
+    width: 100px;
+}
+/*Fim Cardápio*/
+
+fieldset{
+    width: 300px;
+    margin: auto;
+    padding: 30px;
+}
+
+select{
+    width:90%;
+}
+.td, table, header{
+    border: none;
+    text-align: center;
+    width:100%;
+}
+
+/*Rodapé*/
+footer {
+    clear: both;
+    text-align: center;
+}
+
+.rodapeProduto {
+    position:absolute;
+    top: 1000px;
+}
+/*Fim Rodapé*/
+
+/* Login */
+#login {
+	margin: 0px auto;
+	width: 400px;
+}
+
+#login fieldset {
+    background-color: #fff;
+    -webkit-border-radius: 0 0 20px 20px;
+    -moz-border-radius: 0 0 20px 20px;
+    border-radius: 20px 20px 20px 20px;
+    padding: 10px;
+    text-align: left;
+}
+
+#login fieldset p {
+    color: #777;
+    margin-bottom: 14px;
+}
+
+#login fieldset p:last-child {
+    margin-bottom: 0;
+}
+
+#login fieldset input {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+#login fieldset input[type="cpf"], #login fieldset input[type="password"] {
+    background-color: #eee;
+    color: #777;
+    padding: 4px 10px;
+    width: 320px;
+}
+
+#login fieldset input[type="submit"] {
+    background-color: #FFAB00;
+    color: #fff;
+    display: block;
+    margin: 0 auto;
+    padding: 4px 0;
+    width: 100px;
+}
+
+#login fieldset input[type="submit"]:hover {
+    background-color: #FF6D00;
+}
+/* Fim Login*/
+
+#naologado fieldset{
+    padding: 0px;
+    border: 0;
+}

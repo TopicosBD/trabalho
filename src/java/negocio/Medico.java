@@ -1,5 +1,5 @@
 package negocio;
-// Generated 23/08/2017 14:17:48 by Hibernate Tools 4.3.1
+// Generated 29/08/2017 22:21:42 by Hibernate Tools 4.3.1
 
 
 import java.util.Date;
@@ -12,6 +12,7 @@ import java.util.Set;
 public class Medico  implements java.io.Serializable {
 
 
+     private Integer idMedico;
      private int crm;
      private String nome;
      private String cpf;
@@ -44,6 +45,13 @@ public class Medico  implements java.io.Serializable {
        this.atestados = atestados;
     }
    
+    public Integer getIdMedico() {
+        return this.idMedico;
+    }
+    
+    public void setIdMedico(Integer idMedico) {
+        this.idMedico = idMedico;
+    }
     public int getCrm() {
         return this.crm;
     }

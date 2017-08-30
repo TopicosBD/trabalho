@@ -1,5 +1,5 @@
 package negocio;
-// Generated 23/08/2017 14:17:48 by Hibernate Tools 4.3.1
+// Generated 29/08/2017 22:21:42 by Hibernate Tools 4.3.1
 
 
 import java.util.HashSet;
@@ -14,7 +14,7 @@ public class Cargo  implements java.io.Serializable {
      private Integer idCargo;
      private String nome;
      private Set funcionarios = new HashSet(0);
-     private Set riscosOcupacionaises = new HashSet(0);
+     private Set riscosOcupacionais = new HashSet(0);
 
     public Cargo() {
     }
@@ -23,10 +23,10 @@ public class Cargo  implements java.io.Serializable {
     public Cargo(String nome) {
         this.nome = nome;
     }
-    public Cargo(String nome, Set funcionarios, Set riscosOcupacionaises) {
+    public Cargo(String nome, Set funcionarios, Set riscosOcupacionais) {
        this.nome = nome;
        this.funcionarios = funcionarios;
-       this.riscosOcupacionaises = riscosOcupacionaises;
+       this.riscosOcupacionais = riscosOcupacionais;
     }
    
     public Integer getIdCargo() {
@@ -50,12 +50,12 @@ public class Cargo  implements java.io.Serializable {
     public void setFuncionarios(Set funcionarios) {
         this.funcionarios = funcionarios;
     }
-    public Set getRiscosOcupacionaises() {
-        return this.riscosOcupacionaises;
+    public Set getRiscosOcupacionais() {
+        return this.riscosOcupacionais;
     }
     
-    public void setRiscosOcupacionaises(Set riscosOcupacionaises) {
-        this.riscosOcupacionaises = riscosOcupacionaises;
+    public void setRiscosOcupacionais(Set riscosOcupacionais) {
+        this.riscosOcupacionais = riscosOcupacionais;
     }
 
 

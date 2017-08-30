@@ -1,8 +1,7 @@
 package negocio;
-// Generated 23/08/2017 14:17:48 by Hibernate Tools 4.3.1
+// Generated 29/08/2017 22:21:42 by Hibernate Tools 4.3.1
 
 
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -12,11 +11,12 @@ import java.util.Set;
 public class Funcionario  implements java.io.Serializable {
 
 
-     private String cpf;
+     private Integer idFuncionario;
      private Cargo cargo;
      private Empresa empresa;
      private String nome;
-     private Date dataNascimento;
+     private String cpf;
+     private String dataNascimento;
      private String endereco;
      private String telefone;
      private Set exames = new HashSet(0);
@@ -25,31 +25,32 @@ public class Funcionario  implements java.io.Serializable {
     }
 
 	
-    public Funcionario(String cpf, Cargo cargo, Empresa empresa, String nome, Date dataNascimento, String endereco) {
-        this.cpf = cpf;
+    public Funcionario(Cargo cargo, Empresa empresa, String nome, String cpf, String dataNascimento, String endereco, String telefone) {
         this.cargo = cargo;
         this.empresa = empresa;
         this.nome = nome;
+        this.cpf = cpf;
         this.dataNascimento = dataNascimento;
         this.endereco = endereco;
+        this.telefone = telefone;
     }
-    public Funcionario(String cpf, Cargo cargo, Empresa empresa, String nome, Date dataNascimento, String endereco, String telefone, Set exames) {
-       this.cpf = cpf;
+    public Funcionario(Cargo cargo, Empresa empresa, String nome, String cpf, String dataNascimento, String endereco, String telefone, Set exames) {
        this.cargo = cargo;
        this.empresa = empresa;
        this.nome = nome;
+       this.cpf = cpf;
        this.dataNascimento = dataNascimento;
        this.endereco = endereco;
        this.telefone = telefone;
        this.exames = exames;
     }
    
-    public String getCpf() {
-        return this.cpf;
+    public Integer getIdFuncionario() {
+        return this.idFuncionario;
     }
     
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setIdFuncionario(Integer idFuncionario) {
+        this.idFuncionario = idFuncionario;
     }
     public Cargo getCargo() {
         return this.cargo;
@@ -72,11 +73,18 @@ public class Funcionario  implements java.io.Serializable {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public Date getDataNascimento() {
+    public String getCpf() {
+        return this.cpf;
+    }
+    
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+    public String getDataNascimento() {
         return this.dataNascimento;
     }
     
-    public void setDataNascimento(Date dataNascimento) {
+    public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
     public String getEndereco() {

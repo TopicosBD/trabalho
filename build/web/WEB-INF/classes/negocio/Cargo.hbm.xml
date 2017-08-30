@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- Generated 23/08/2017 14:17:50 by Hibernate Tools 4.3.1 -->
+<!-- Generated 29/08/2017 22:21:48 by Hibernate Tools 4.3.1 -->
 <hibernate-mapping>
     <class name="negocio.Cargo" table="cargo" catalog="sistemaclinica" optimistic-lock="version">
         <id name="idCargo" type="java.lang.Integer">
@@ -17,7 +17,7 @@
             </key>
             <one-to-many class="negocio.Funcionario" />
         </set>
-        <set name="riscosOcupacionaises" table="cargo_has_riscos_ocupacionais" inverse="false" lazy="true" fetch="select">
+        <set name="riscosOcupacionais" table="cargo_has_riscos_ocupacionais" inverse="false" lazy="true" fetch="select">
             <key>
                 <column name="cargo_id_cargo" not-null="true" />
             </key>

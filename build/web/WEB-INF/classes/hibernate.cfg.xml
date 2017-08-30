@@ -43,18 +43,18 @@ Contributor(s):
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/sistemaclinica?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/sistemaclinica</property>
     <property name="hibernate.connection.username">root</property>
-    <property name="hibernate.show_sql">true</property>
+    <property name="hibernate.show_sql">true</property>   
     <property name="hibernate.query.factory_class">org.hibernate.hql.internal.classic.ClassicQueryTranslatorFactory</property>
-    <mapping resource="negocio/Atestado.hbm.xml"/>
     <mapping resource="negocio/Empresa.hbm.xml"/>
-    <mapping resource="negocio/ResultadoExame.hbm.xml"/>
-    <mapping resource="negocio/Exame.hbm.xml"/>
-    <mapping resource="negocio/RiscosOcupacionais.hbm.xml"/>
-    <mapping resource="negocio/Cargo.hbm.xml"/>
     <mapping resource="negocio/Funcionario.hbm.xml"/>
+    <mapping resource="negocio/ResultadoExame.hbm.xml"/>
+    <mapping resource="negocio/RiscosOcupacionais.hbm.xml"/>
+    <mapping resource="negocio/Atestado.hbm.xml"/>
     <mapping resource="negocio/Medico.hbm.xml"/>
+    <mapping resource="negocio/Exame.hbm.xml"/>
     <mapping resource="negocio/TipoExame.hbm.xml"/>
+    <mapping resource="negocio/Cargo.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>
