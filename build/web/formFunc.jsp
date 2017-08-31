@@ -61,7 +61,7 @@
                 <%
                     try {
                         Empresa empresa = new Empresa();
-                        List empresas = EmpresaDAO.findAll();
+                        List empresas = EmpresaDAO.getEmpresas(5);
                         Iterator<Empresa> ie = empresas.iterator();
                         while (ie.hasNext()) {
                             empresa = ie.next();

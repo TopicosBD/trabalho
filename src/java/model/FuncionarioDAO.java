@@ -7,9 +7,7 @@ package model;
 
 import negocio.Funcionario;
 import util.HibernateUtil;
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import util.Util;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
@@ -32,11 +30,18 @@ public class FuncionarioDAO extends HibernateUtil{
         this.funcionario = funcionario;
     }
     
+    /**
+     * Salvar funcionário
+     * @param func
+     * @return 
+     */
     public static int salvarFuncionario(Funcionario func){
         int status;
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         try {
+            Util util = new Util();
+            func.setDataNascimento(util.converteData(func.getDataNascimento()));
             session.save(func);
             status = 1;
         } catch (HibernateException e) {

@@ -9,11 +9,8 @@ import negocio.Empresa;
 import util.HibernateUtil;
 
 import java.util.List;
-import java.util.Map;
-import javax.persistence.EntityManager;
-import org.hibernate.Query;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
-import org.hibernate.criterion.Restrictions;
 
 public class EmpresaDAO extends HibernateUtil {
     
@@ -34,19 +31,45 @@ public class EmpresaDAO extends HibernateUtil {
         this.empresa = empresa;
     }
 
-    public static List<Empresa> findAll() {
+    /**
+     * Busca as empresas, limitando o resultado pelo parâmetro quantidade
+     * @param quantidade
+     * @return
+     */
+    public static List<Empresa> getEmpresas(int quantidade) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        List empresas = session.createCriteria(Empresa.class).setMaxResults(5).list();
+        List empresas = session.createCriteria(Empresa.class).setMaxResults(quantidade).list();
         session.flush();
         session.close();
         return empresas;
     }
     
-    public void salvarCargo(){
+    /**
+     * Busca todas as empresas
+     * @return 
+     */
+    public static List<Empresa> findAll() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        session.save(this.empresa);
+        List empresas = session.createCriteria(Empresa.class).list();
+        session.flush();
+        session.close();
+        return empresas;
+    }
+    
+    /**
+     * Salvar empresa
+     */
+    public void salvarEmpresa(){
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        try {
+            session.save(this.empresa);
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            session.getTransaction().rollback();
+        }
         session.getTransaction().commit();
         session.flush();
         session.close();

@@ -9,6 +9,7 @@ import negocio.Cargo;
 import util.HibernateUtil;
 
 import java.util.List;
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 
 public class CargoDAO extends HibernateUtil {
@@ -30,6 +31,10 @@ public class CargoDAO extends HibernateUtil {
         this.cargo = cargo;
     }
     
+    /**
+     * Buscar todos os cargos
+     * @return 
+     */
     public static List<Cargo> findAll() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
@@ -39,10 +44,18 @@ public class CargoDAO extends HibernateUtil {
         return cargos;
     }
     
+    /**
+     * Salvar cargo
+     */
     public void salvarCargo(){
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        session.save(this.cargo);
+        try {
+            session.save(this.cargo);
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            session.getTransaction().rollback();
+        }
         session.getTransaction().commit();
         session.flush();
         session.close();

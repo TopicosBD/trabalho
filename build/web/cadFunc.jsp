@@ -4,6 +4,9 @@
     Author     : thiag
 --%>
 
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
+<%@page import="java.text.DateFormat"%>
 <%@page import="negocio.Cargo"%>
 <%@page import="model.FuncionarioDAO"%>  
 <jsp:useBean id="obj" class="negocio.Funcionario"/>
@@ -20,15 +23,12 @@
 
 <%
     int status;
-    ///obj.setDataNascimento(obj.converterStringData(obj.));
     obj.setEmpresa(objEmpresa);
     obj.setCargo(objCargo);
     
-    status = FuncionarioDAO.salvarFuncionario(obj);
-    if (status > 0) {
+    if (FuncionarioDAO.salvarFuncionario(obj) > 0) {
         out.print("Salvo com sucesso");
     }else{
         out.print("Falha na inserção");
     }
-
 %> 
