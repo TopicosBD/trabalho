@@ -9,7 +9,7 @@
             <generator class="identity" />
         </id>
         <many-to-one name="empresa" class="negocio.Empresa" fetch="select">
-            <column name="empresa_id_empresa" />
+            <column name="empresa_id" />
         </many-to-one>
         <property name="cnpj" type="string">
             <column name="cnpj" length="20" not-null="true" />
@@ -25,13 +25,13 @@
         </property>
         <set name="funcionarios" table="funcionario" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="empresa_id_empresa" not-null="true" />
+                <column name="empresa_id" not-null="true" />
             </key>
             <one-to-many class="negocio.Funcionario" />
         </set>
         <set name="exames" table="empresa_has_exame" inverse="false" lazy="true" fetch="select">
             <key>
-                <column name="empresa_id_empresa" not-null="true" />
+                <column name="empresa_id" not-null="true" />
             </key>
             <many-to-many entity-name="negocio.Exame">
                 <column name="exame_id_exame" not-null="true" />
@@ -39,7 +39,7 @@
         </set>
         <set name="empresas" table="empresa" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="empresa_id_empresa" />
+                <column name="empresa_id" />
             </key>
             <one-to-many class="negocio.Empresa" />
         </set>

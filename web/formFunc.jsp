@@ -5,6 +5,7 @@
 --%>
 
 <%@page import="negocio.Empresa"%>
+<%@page import="model.EmpresaDAO"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="org.hibernate.Query"%>
 <%@page import="org.hibernate.Transaction"%>
@@ -39,19 +40,15 @@
             <select name="idCargo">    
                 <%
                     try {
-                        Session s = HibernateUtil.getSessionFactory().openSession();
-                        Transaction tx = s.beginTransaction();
-                        Cargo se = new Cargo();
-                        List li = s.createCriteria(Cargo.class).list();
-                        s.flush();
-                        s.close();
-                        Iterator<Cargo> ie = li.iterator();
+                        Cargo cargo = new Cargo();
+                        List cargos = CargoDAO.findAll();
+                        Iterator<Cargo> ie = cargos.iterator();
                         while (ie.hasNext()) {
-                            se = ie.next();
-                            Integer un = se.getIdCargo();
-                            String no = se.getNome();
+                            cargo = ie.next();
+                            Integer id = cargo.getIdCargo();
+                            String nome = cargo.getNome();
                 %>
-                            <option value="<%= un%>"><%= no%></option>
+                            <option value="<%= id%>"><%= nome%></option>
                 <%
                         }
                     } catch (Exception he) {
@@ -63,19 +60,15 @@
             <select name="idEmpresa">    
                 <%
                     try {
-                        Session s = HibernateUtil.getSessionFactory().openSession();
-                        Transaction tx = s.beginTransaction();
-                        Empresa se = new Empresa();
-                        List li = s.createCriteria(Empresa.class).list();
-                        s.flush();
-                        s.close();
-                        Iterator<Empresa> ie = li.iterator();
+                        Empresa empresa = new Empresa();
+                        List empresas = EmpresaDAO.findAll();
+                        Iterator<Empresa> ie = empresas.iterator();
                         while (ie.hasNext()) {
-                            se = ie.next();
-                            Integer un = se.getIdEmpresa();
-                            String no = se.getNomeFantasia();
+                            empresa = ie.next();
+                            Integer id = empresa.getIdEmpresa();
+                            String nome = empresa.getNomeFantasia();
                 %>
-                            <option value="<%= un%>"><%= no%></option>
+                            <option value="<%= id%>"><%= nome%></option>
                 <%
                         }
                     } catch (Exception he) {
@@ -85,7 +78,6 @@
             </select> <br><br>
             
             <input type="submit" value="Cadastrar"/>  
-            <input type="reset" value="Limpar">
         </form>
         </div>
     </body>

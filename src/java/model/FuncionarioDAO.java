@@ -33,13 +33,21 @@ public class FuncionarioDAO extends HibernateUtil{
     }
     
     public static int salvarFuncionario(Funcionario func){
+        int status;
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        session.save(func);
+        try {
+            session.save(func);
+            status = 1;
+        } catch (HibernateException e) {
+            e.printStackTrace();
+            session.getTransaction().rollback();
+            status = 0;
+        }
         session.getTransaction().commit();
         session.flush();
         session.close();
-        return 1;
+        return status;
     }
     
 }
