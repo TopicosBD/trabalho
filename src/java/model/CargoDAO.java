@@ -45,6 +45,20 @@ public class CargoDAO extends HibernateUtil {
     }
     
     /**
+     * Buscar determinada quantidade de cargos
+     * @param quantidade
+     * @return 
+     */
+    public static List<Cargo> getQtdCargos(int quantidade) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        List cargos = session.createCriteria(Cargo.class).setMaxResults(quantidade).list();
+        session.flush();
+        session.close();
+        return cargos;
+    }
+    
+    /**
      * Salvar cargo
      */
     public void salvarCargo(){

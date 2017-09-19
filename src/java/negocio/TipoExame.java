@@ -27,6 +27,11 @@ public class TipoExame  implements java.io.Serializable {
        this.exames = exames;
     }
    
+    public TipoExame(String tipo, Integer idTipoExame) {
+       this.tipo = tipo;
+       this.idTipoExame = idTipoExame;
+    }
+    
     public Integer getIdTipoExame() {
         return this.idTipoExame;
     }
